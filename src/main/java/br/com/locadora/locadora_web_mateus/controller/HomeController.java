@@ -1,7 +1,7 @@
 package br.com.locadora.locadora_web_mateus.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller; // Coloca a classe pacote no controller
+import org.springframework.web.bind.annotation.GetMapping; //Importa a anotação que identifica o Controller and Importa a anotação usada para
 
 
 
@@ -16,10 +16,3 @@ public class HomeController { //Declara o controller da página inicial
     };
 
 }
-
-
-/*
-3 -Coloca a classe pacote no controller
-4 - Importa a anotação que identifica o Controller
-4 - Importa a anotação usada para
-*/
