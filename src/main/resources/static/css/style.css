@@ -75,7 +75,13 @@ body{
 .botao-menu:hover{
     background-color: #2563eb;
     color: white;
-    transition: 0.2s;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.botao-menu:active {
+    transform: scale(0.95);
+    transition: 0.1s;
 }
 
 .rodape{
@@ -86,6 +92,8 @@ body{
     text-align: center;
 
 }
+
+
 
 @media (max-width: 700px){
     .menu{
