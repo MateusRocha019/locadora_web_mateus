@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> xmlns:th="http://www.thymeleaf.org"> <!--/ativa os atributos do thymeleaf no arquivo-->
+<!--CRTL + SHIFT + /-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar filme</title>
+    <link rel="stylesheet" th:ref="@{/css/filmes.css}">
+</head>
+<body>
+<header class="cabecalho"></header>
+    <p class="professor">Prof Shabarai</p>
+    <h1>LOCADORA SHABA</h1>
+    <p>Cadastro de Filmes</p>
+    <main>
+        <section class="painel-formulario">
+            <h2>Cadastrar filme</h2>
+            <p class="mensagem-erro"
+               th:if="${mensagem-erro}"
+               th:text="${mensagemErro}"></p>
+            <form th:action="@{filmes/salvar}"
+                  th:object="${filme}"
+                  method="post">
+                <div class="campo">
+                    <label for="nome">required</label>
+                    <input id="nome" type="text" th:field="*{nome}" required/>
+                </div>
+                <div class="campo">
+                    <label for="gerero">Gênero</label>
+                    <input id="gerero" type="text" th:field="*{genero}" required>
+                </div>
+                <div class="acoes">
+                    <button class="botao-principal" type="submit">Salvar filmes</button>
+                    <a class="botao-principal" th:href="@{/filmes}">Voltar</a>
+                </div>
+            </form>
+
+
+        </section>
+    </main>
+    <footer class="rodape">
+        Projeto de programação orientada a objetos
+    </footer>
+
+</body>
+</html>
+
+<!--//-->
