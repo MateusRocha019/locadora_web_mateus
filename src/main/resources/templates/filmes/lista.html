@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th"http;//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    meta
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes Cadastrados</title>
+</head>
+<body>
+<header class="cabecalho">
+    <p class="professor">Prof. Fernando Sá</p>
+    <h1>LOCADORA SHABARAY</h1>
+    <p>Filmes cadastrados</p>
+</header>
+<main class="conteudo">
+    <section class="painel-listagem">
+        <div class="cabecalho-pagina">
+            <h2>Lista de Filmes</h2>
+            <a class="botao-principal" th:href="@{/filmes/novo}">Cadastrar novo filme</a>
+        </div>
+        <p class="mensagem-sucesso" th:if="${param.sucesso}">Filme cadastrado com sucesso</p>
+        <!-- Lê o parâmetro de sucesso presente no HTML-->
+        <p class="lista-vazia" th:if="${filme.isEmply()}">Nenhum filme cadastrado</p>
+        <div class="tabela-container" th:if="${filme.isEmply()}">
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Gênero</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="filme : ${filmes}">
+                    <td th:text="${filme.codigo}">1</td>
+                    <td th:text="${filme.nome}">Matrix</td>
+                    <td th:text="${filme.genero}">Ficção</td>
+                    <td>
+                        <span th:if="${filme.alugado}" class="status-alugado">Alugado</span>
+                        <!-- Mostra alugado quando o isAlugado() retorna TRUE-->
+                        <span th:unless="${}filme.alugado" class="status-disponivel">Disponível</span>
+                        <!-- Mostra "disponível" quando a condição for FALSE -->
+                    </td>
+                </tr> <!-- repete a linha para cada filme da lista -->
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <a class="botao-secundario" th:href="@{/}">Volta ao menu</a>
+        </div>
+    </section>
+</main>
+</body>
+</html>
+
